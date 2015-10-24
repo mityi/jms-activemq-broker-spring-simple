@@ -1,4 +1,4 @@
-package rda.jms;
+package rda.jms.webapp;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.jms.Message;
 import java.io.File;
 
 @RestController
@@ -35,5 +34,10 @@ public class SampleController {
         logger.info("Stop application");
         context.close();
         FileSystemUtils.deleteRecursively(new File("activemq-data"));
+    }
+
+    @RequestMapping("/")
+    private String hi() {
+        return "Hi!";
     }
 }
